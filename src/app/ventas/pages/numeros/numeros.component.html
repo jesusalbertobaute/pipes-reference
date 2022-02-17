@@ -1,0 +1,39 @@
+<div class="text-color-main">
+    <h1>DecimalPipe o NumberPipe y Porcentaje</h1>
+    <p>
+        Pipes Incluidos en Angular-Usualmente en el Common Module
+    </p>
+</div>
+
+<div class="grid text-color-main">
+    <div class="col-4">
+        <p-card header="Ventas Netas"
+                subheader="Del Presente Año">
+            <ul>    
+              <li>{{ventasNetas | number}}</li><!--Default-->
+              <li>{{ventasNetas | number:'.2-2'}}</li><!--Toda la parte entera con dos decimales, tambien funciona 1.2-2-->
+              <li>{{ventasNetas | number:'.2-2':'fr'}}</li><!--Con otro locale importado desde app.module-->
+            </ul>
+        </p-card>
+    </div>
+
+    <div class="col-4">
+        <p-card header="Ventas Brutas"
+                subheader="Del Presente Año">
+            <ul>    
+              <li>{{(ventasNetas + 100000000) | currency:'EUR':'code':'1.0-4'}}</li><!--Default-->
+              <li>{{(ventasNetas + 100000000) | currency:'EUR':'symbol-narrow':'1.0-4'}}</li>
+            </ul>
+        </p-card>
+    </div>
+
+    <div class="col-4">
+        <p-card header="Ganancia Porcentual"
+                subheader="Del Presente Año">
+            <ul>    
+              <li>{{porcentaje| percent:'2.2-2'}}</li><!--Default-->
+            </ul>
+        </p-card>
+    </div>
+
+</div>
